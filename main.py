@@ -22,6 +22,7 @@ def main():
 
         if game.winner() != None:
             print(game.winner())
+            game.draw_winner()
             run = False
 
         for event in pygame.event.get():

@@ -1,5 +1,5 @@
 import pygame
-from .constants import RED, WHITE, BLUE, SQUARE_SIZE
+from .constants import RED, WHITE, BLUE, SQUARE_SIZE, WIN_FONTS, WIDTH, HEIGHT, BLACK
 from checkers.board import Board
 
 class Game:
@@ -20,6 +20,12 @@ class Game:
 
     def winner(self):
         return self.board.winner()
+
+    def draw_winner(self):
+        text = WIN_FONTS.render("You Win", 1, WHITE)
+        self.win.blit(text, (WIDTH/2 - text.get_width()/2, HEIGHT/2- text.get_height()/2))
+        pygame.display.update()
+        pygame.time.delay(4000)
 
     def reset(self):
         self._init()
